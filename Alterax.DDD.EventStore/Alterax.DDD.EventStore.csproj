@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F426919C-3803-4E4B-AF66-448A6F0E495B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alterax.DDD.EventStore</RootNamespace>
+    <AssemblyName>Alterax.DDD.EventStore</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregate\BaseAggregateRoot.cs" />
+    <Compile Include="Aggregate\BaseEntity.cs" />
+    <Compile Include="Aggregate\BaseEntityExtensions.cs" />
+    <Compile Include="Aggregate\EntityList.cs" />
+    <Compile Include="Aggregate\UnregisteredDomainEventException.cs" />
+    <Compile Include="DomainEvent.cs" />
+    <Compile Include="DomainRepository.cs" />
+    <Compile Include="IDomainEvent.cs" />
+    <Compile Include="IDomainRepository.cs" />
+    <Compile Include="IEntityEventProvider.cs" />
+    <Compile Include="IEventProvider.cs" />
+    <Compile Include="IRegisterChildEntities.cs" />
+    <Compile Include="ITransactional.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Snapshot.cs" />
+    <Compile Include="Storage\EventStoreIdentityMap.cs" />
+    <Compile Include="Storage\EventStoreUnitOfWork.cs" />
+    <Compile Include="Storage\IDomainEventStorage.cs" />
+    <Compile Include="Storage\IEventStoreUnitOfWork.cs" />
+    <Compile Include="Storage\IIdentityMap.cs" />
+    <Compile Include="Storage\ISnapshot.cs" />
+    <Compile Include="Storage\ISnapshotStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alterax.DDD.Bus\Alterax.DDD.Bus.csproj">
+      <Project>{75864b0c-1b73-4b97-90b6-17711ce83260}</Project>
+      <Name>Alterax.DDD.Bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventStore.Storage.Memento\Alterax.DDD.EventStore.Storage.Memento.csproj">
+      <Project>{77011d7b-5c0f-4a11-9b90-db3399910cf3}</Project>
+      <Name>Alterax.DDD.EventStore.Storage.Memento</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

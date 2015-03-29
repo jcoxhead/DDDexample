@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6BFCD465-E9BD-43B5-BB89-9AEFE3DEE44E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alterax.DDD.Domain</RootNamespace>
+    <AssemblyName>Alterax.DDD.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AccountBalanceNotZeroException.cs" />
+    <Compile Include="Account\AccountBalanceToLowException.cs" />
+    <Compile Include="Account\AccountName.cs" />
+    <Compile Include="Account\AccountNumber.cs" />
+    <Compile Include="Account\ActiveAccount.cs" />
+    <Compile Include="Account\Amount.cs" />
+    <Compile Include="Account\Balance.cs" />
+    <Compile Include="Account\ClosedAccount.cs" />
+    <Compile Include="Account\ClosedAccountException.cs" />
+    <Compile Include="Account\Ledger.cs" />
+    <Compile Include="Account\NonExitsingAccountException.cs" />
+    <Compile Include="Address.cs" />
+    <Compile Include="Client\Address.cs" />
+    <Compile Include="Client\BankCard.cs" />
+    <Compile Include="Client\BankCardIsDisabledException.cs" />
+    <Compile Include="Client\Client.cs" />
+    <Compile Include="Client\ClientName.cs" />
+    <Compile Include="Client\IBankCard.cs" />
+    <Compile Include="Client\NonExistingAccountException.cs" />
+    <Compile Include="Client\NonExistingBankCardException.cs" />
+    <Compile Include="Client\NonExistingClientException.cs" />
+    <Compile Include="Client\PhoneNumber.cs" />
+    <Compile Include="Mementos\ActiveAccountMemento.cs" />
+    <Compile Include="Mementos\BankCardMemento.cs" />
+    <Compile Include="Mementos\ClientMemento.cs" />
+    <Compile Include="Mementos\ClosedAccountMemento.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alterax.DDD.Common\Alterax.DDD.Common.csproj">
+      <Project>{048e2d71-3ce4-48c1-9501-051699443b37}</Project>
+      <Name>Alterax.DDD.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventStore.SQLite\Alterax.DDD.EventStore.SQLite.csproj">
+      <Project>{6fab4711-de48-4d79-a8eb-44fbe4eb0058}</Project>
+      <Name>Alterax.DDD.EventStore.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventStore.Storage.Memento\Alterax.DDD.EventStore.Storage.Memento.csproj">
+      <Project>{77011d7b-5c0f-4a11-9b90-db3399910cf3}</Project>
+      <Name>Alterax.DDD.EventStore.Storage.Memento</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventStore\Alterax.DDD.EventStore.csproj">
+      <Project>{f426919c-3803-4e4b-af66-448a6f0e495b}</Project>
+      <Name>Alterax.DDD.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.Events\Alterax.DDD.Events.csproj">
+      <Project>{a9cefb87-e456-49be-aa4f-ae61f2d58f48}</Project>
+      <Name>Alterax.DDD.Events</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01AEE064-624A-4589-9A6E-A8ED1713A0FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alterax.DDD.UnitTest</RootNamespace>
+    <AssemblyName>Alterax.DDD.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseTestFixture.cs" />
+    <Compile Include="Bus\CommandBus.cs" />
+    <Compile Include="Bus\EventBus.cs" />
+    <Compile Include="CommandTestFixture.cs" />
+    <Compile Include="Configuration\DatabaseBootStrapperTest.cs" />
+    <Compile Include="Domain\Repository\ActiveAccountRepositoryTest.cs" />
+    <Compile Include="Domain\Repository\ClosedAccountRepositoryTest.cs" />
+    <Compile Include="Domain\Repository\ClientRepositoryTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Compile Include="Test.Extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alterax.DDD.Bus\Alterax.DDD.Bus.csproj">
+      <Project>{75864b0c-1b73-4b97-90b6-17711ce83260}</Project>
+      <Name>Alterax.DDD.Bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.CommandHandlers%3b\Alterax.DDD.CommandHandlers.csproj">
+      <Project>{d9cc98e5-382e-4354-826a-a7a4bc80acae}</Project>
+      <Name>Alterax.DDD.CommandHandlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.Command\Alterax.DDD.Command.csproj">
+      <Project>{2db2aac4-6cff-4af7-86bf-cb7167d74e9d}</Project>
+      <Name>Alterax.DDD.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.Configuration\Alterax.DDD.Configuration.csproj">
+      <Project>{add6b4d9-ac4c-4f7b-abdb-755f256b3d15}</Project>
+      <Name>Alterax.DDD.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.Domain\Alterax.DDD.Domain.csproj">
+      <Project>{6bfcd465-e9bd-43b5-bb89-9aefe3dee44e}</Project>
+      <Name>Alterax.DDD.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventHandlers\Alterax.DDD.EventHandlers.csproj">
+      <Project>{7cb9574f-dcf5-4b1d-a3bf-1eb60cb2afa9}</Project>
+      <Name>Alterax.DDD.EventHandlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventStore.SQLite\Alterax.DDD.EventStore.SQLite.csproj">
+      <Project>{6fab4711-de48-4d79-a8eb-44fbe4eb0058}</Project>
+      <Name>Alterax.DDD.EventStore.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventStore.Storage.Memento\Alterax.DDD.EventStore.Storage.Memento.csproj">
+      <Project>{77011d7b-5c0f-4a11-9b90-db3399910cf3}</Project>
+      <Name>Alterax.DDD.EventStore.Storage.Memento</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.EventStore\Alterax.DDD.EventStore.csproj">
+      <Project>{f426919c-3803-4e4b-af66-448a6f0e495b}</Project>
+      <Name>Alterax.DDD.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alterax.DDD.Events\Alterax.DDD.Events.csproj">
+      <Project>{a9cefb87-e456-49be-aa4f-ae61f2d58f48}</Project>
+      <Name>Alterax.DDD.Events</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
