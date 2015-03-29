@@ -6,6 +6,7 @@
     using Alterax.DDD.EventStore.Storage.Memento.Memento;
     using Events.Client;
     using Mementos;
+//Test Comment
 
     public class BankCard : BaseEntity<IDomainEvent>, IOrginator, IBankCard
     {
